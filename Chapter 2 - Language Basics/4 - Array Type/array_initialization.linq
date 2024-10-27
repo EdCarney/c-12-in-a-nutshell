@@ -23,5 +23,26 @@ var arr5 = new PointClass[100];		// creates an array of 100 nulls
 
 PointStruct[] arr6 = null;
 
+// simplified initialization can be done by omitting the new operator and type qualifications
+// (and possibly using a collection expression), which is shown above
+//
+// OR you can use var
+
+// note that with var for arrays, there are the following considerations
+// - all elements must be implicitly convertible to a single type
+// - one of the elements must be of that single type
+// - there must be exactly one best type
+
+var x1 = new[] { 1, 100_000_000_000 };
+
+// also note that the implicit var typing cannot be used with an array initializer or collection expression
+
+/*
+var x2 = { 1, 100_000_000_000 };	// invalid array initializer
+var x3 = [ 1, 100_000_000_000 ];	// invalid collection expression
+*/
+
+// type decalarations
+
 struct PointStruct { int X, Y; }
 class PointClass { public int X, Y; }
